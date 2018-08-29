@@ -20,6 +20,7 @@ $(document).ready(function () {
 
     $("#numberWins").text(wins);
     $("#numberLosses").text(losses);
+    $("#userTotal").text(totalScore)
 
     //resetting the game, for random number and for the gem values//
     function reset() {
@@ -40,7 +41,7 @@ $(document).ready(function () {
     function totalWins() {
         alert("You Won!!!");
         wins++;
-        // $("#numberWins").text(wins);
+        $("#numberWins").html(wins);
         reset();
     }
 
@@ -48,11 +49,12 @@ $(document).ready(function () {
     function totalLosses() {
         alert("You lost...Boohoo");
         losses++;
-        // $("numberLosses").text(losses);
+        $("#numberLosses").html(losses);
         reset();
     }
 
     //Listening to gem clicks and tallying total score//
+    debugger;
 
     $("#gem1").on("click", function () {
         totalScore = totalScore + gem1;
@@ -101,8 +103,8 @@ $(document).ready(function () {
     });
 
     var html = 
-        "<p>Wins: " + wins + "</P>" +
-        "<p>Losses: " + losses + "</p";
+        "<p>Wins: " + wins + "</p>" +
+        "<p>Losses: " + losses + "</p>";
     document.getElementByID("game").innerhtml = html;
 
 });
