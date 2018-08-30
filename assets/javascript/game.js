@@ -57,6 +57,8 @@ $(document).ready(function () {
         reset();
     }
 
+
+
     //Listening to gem clicks and tallying total score//
 
     $("#gem1").on("click", function () {
