@@ -1,4 +1,11 @@
 $(document).ready(function () {
+    //set variables for wins and losses//
+
+    var wins=0;
+    var losses=0;
+    var totalScore=0;
+    $("#numberWins").text("Wins: " + wins);
+    $("#numberLosses").text("Losses: " + losses);
 
     //randomNumber is the number shown at the start of the game//
     var randomNumber;
@@ -13,13 +20,10 @@ $(document).ready(function () {
     var gem3= Math.floor(Math.random () * 11 + 1);
     var gem4= Math.floor(Math.random () * 11 + 1);
         
-    //set variables for wins and losses//
-    var wins=0;
-    var losses=0;
-    var totalScore=0;
+    
 
-    $("#numberWins").text(wins);
-    $("#numberLosses").text(losses);
+    // $("#numberWins").text(wins);
+    // $("#numberLosses").text(losses);
     $("#userTotal").text(totalScore)
 
     //resetting the game, for random number and for the gem values//
@@ -41,7 +45,7 @@ $(document).ready(function () {
     function totalWins() {
         alert("You Won!!!");
         wins++;
-        $("#numberWins").html(wins);
+        $("#numberWins").html("<p>Wins: " + wins + "</p>");
         reset();
     }
 
@@ -49,17 +53,16 @@ $(document).ready(function () {
     function totalLosses() {
         alert("You lost...Boohoo");
         losses++;
-        $("#numberLosses").html(losses);
+        $("#numberLosses").html("<p>Losses: " + losses + "</p>");
         reset();
     }
 
     //Listening to gem clicks and tallying total score//
-    debugger;
 
     $("#gem1").on("click", function () {
         totalScore = totalScore + gem1;
         $("#userTotal").text (totalScore);
-            if (totalScore == randomNumber) {
+            if (totalScore === randomNumber) {
                 totalWins();
             }
             else if (totalScore > randomNumber) {
@@ -70,7 +73,7 @@ $(document).ready(function () {
     $("#gem2").on("click", function () {
         totalScore = totalScore + gem2;
         $("#userTotal").text (totalScore);
-            if (totalScore == randomNumber) {
+            if (totalScore === randomNumber) {
                 totalWins();
             }
             else if (totalScore > randomNumber) {
@@ -102,9 +105,6 @@ $(document).ready(function () {
 
     });
 
-    var html = 
-        "<p>Wins: " + wins + "</p>" +
-        "<p>Losses: " + losses + "</p>";
-    document.getElementByID("game").innerhtml = html;
+   
 
 });
